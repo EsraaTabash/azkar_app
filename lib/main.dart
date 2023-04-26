@@ -20,7 +20,8 @@ class App extends StatelessWidget {
             )
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.green
+          backgroundColor: Colors.green,
+          centerTitle: true
         )
       ),
     );

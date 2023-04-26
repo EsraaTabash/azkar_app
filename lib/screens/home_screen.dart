@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:azkar_app/models/section.dart';
+import 'package:azkar_app/screens/section_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView.builder(
             physics: BouncingScrollPhysics(),
             itemCount: sections.length,
-            itemBuilder: (context,index)=> buildSectionItem(text :sections[index].name!)
+            itemBuilder: (context,index)=> buildSectionItem(section :sections[index])
         )
           //(
           // children: [
@@ -45,25 +46,32 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  Widget buildSectionItem({required String text}){
-    return Container(
-      margin: const EdgeInsetsDirectional.only(top: 12),
-      width: double.infinity,
-      height: 100,
-      decoration:  BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0),
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Colors.lightGreenAccent,
-            Colors.green,
-            Colors.lightGreenAccent,
-          ]
-        )
-      ),
-      child: Center(
-        child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 18))
+  Widget buildSectionItem({required Section section}){
+    return InkWell(
+      onTap: (){
+        //log("clicked $text");
+        //log("clicked ${section.id}");
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SectionDetailsScreen(id: section.id!,title: section.name!,)));
+      },
+      child: Container(
+        margin: const EdgeInsetsDirectional.only(top: 12),
+        width: double.infinity,
+        height: 100,
+        decoration:  BoxDecoration(
+          borderRadius: BorderRadius.circular(12.0),
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.lightGreenAccent,
+              Colors.green,
+              Colors.lightGreenAccent,
+            ]
+          )
+        ),
+        child: Center(
+          child: Text(section.name.toString(),style: const TextStyle(color: Colors.white,fontSize: 18))
+        ),
       ),
     );
   }
@@ -75,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
       var response = json.decode(data);
       response.forEach((section) {
         Section sectionObj = Section.fromMap(section);
-        log(sectionObj.name.toString());
+        //log(sectionObj.name.toString());
         sections.add(sectionObj);
       });
       setState(() {});
