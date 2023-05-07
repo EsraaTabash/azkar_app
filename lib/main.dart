@@ -1,4 +1,5 @@
 import 'package:azkar_app/screens/home_screen.dart';
+import 'package:azkar_app/screens/launch_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +12,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+        initialRoute: '/launch_screen',
+        routes: {
+          '/launch_screen':(context) => LaunchScreen(),
+          '/main_screen':(context) => HomeScreen()
+        },
       home: const HomeScreen(),
       theme: ThemeData(
         textTheme: const TextTheme(
@@ -20,7 +26,7 @@ class App extends StatelessWidget {
             )
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.teal,
           centerTitle: true
         )
       ),

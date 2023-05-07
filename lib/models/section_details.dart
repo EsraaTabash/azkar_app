@@ -1,4 +1,9 @@
-class SectionDetails{
+
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
+class SectionDetails extends StatefulWidget {
   int? sectionId;
   String? count;
   String? description;
@@ -11,5 +16,27 @@ class SectionDetails{
     this.description = map['description'];
     this.reference = map['reference'];
     this.content = map['content'];
+  }
+
+  @override
+  State<SectionDetails> createState() => _SectionDetailsState();
+}
+
+class _SectionDetailsState extends State<SectionDetails> {
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(widget.content!,textDirection: TextDirection.rtl,style: TextStyle(wordSpacing:2,height: 2,fontSize: 28,fontFamily:'Tajawal',color: Colors.teal),),
+          Align(alignment:Alignment.bottomCenter,child: Text(widget.description!,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 22,fontFamily:'Tajawal'))),
+          Align(alignment:Alignment.bottomCenter,child: Text(widget.reference!,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20,fontFamily:'Tajawal'))),
+        ],
+      ),
+    );
   }
 }

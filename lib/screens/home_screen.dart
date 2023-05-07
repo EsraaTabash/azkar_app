@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:azkar_app/models/section.dart';
-import 'package:azkar_app/screens/section_details.dart';
+import 'package:azkar_app/screens/section_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("أذكـــار المُســـلم",),
+        title: const Text("أذكـــار المُســـلم",style:TextStyle(fontFamily: 'Tajawal')),
         centerTitle: true,
         elevation: 0 ,
       ),
@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Container(
         margin: const EdgeInsetsDirectional.only(top: 12),
+        padding: EdgeInsetsDirectional.only(end: 20),
         width: double.infinity,
         height: 100,
         decoration:  BoxDecoration(
@@ -63,15 +64,16 @@ class _HomeScreenState extends State<HomeScreen> {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Colors.lightGreenAccent,
-              Colors.green,
-              Colors.lightGreenAccent,
+              Colors.teal,
+              Colors.teal,
+              Colors.teal,
+              Colors.teal,
+              Colors.tealAccent,
+              Colors.tealAccent,
             ]
           )
         ),
-        child: Center(
-          child: Text(section.name.toString(),style: const TextStyle(color: Colors.white,fontSize: 18))
-        ),
+          child: Align(alignment:Alignment.centerRight,child: Text(section.name.toString(),style: const TextStyle(color: Colors.white,fontSize:18,fontFamily: 'Tajawal')))
       ),
     );
   }
