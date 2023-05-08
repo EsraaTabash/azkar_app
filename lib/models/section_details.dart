@@ -33,8 +33,8 @@ class _SectionDetailsState extends State<SectionDetails> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(widget.content!,textDirection: TextDirection.rtl,style: TextStyle(wordSpacing:2,height: 2,fontSize: 28,fontFamily:'Tajawal',color: Colors.teal),),
-          Align(alignment:Alignment.bottomCenter,child: Text(widget.description!,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 22,fontFamily:'Tajawal'))),
-          Align(alignment:Alignment.bottomCenter,child: Text(widget.reference!,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20,fontFamily:'Tajawal'))),
+          //Align(alignment:Alignment.bottomCenter,child: Text(widget.description!,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 22,fontFamily:'Tajawal'))),
+          Container(height:screenHeight/20,child: Align(alignment:Alignment.bottomCenter,child: Text(widget.reference!,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20,fontFamily:'Tajawal')))),
         ],
       ),
     );

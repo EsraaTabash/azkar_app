@@ -24,6 +24,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Container(
+        margin: EdgeInsets.all(16),
+        child: FloatingActionButton(
+          elevation: 20,
+          onPressed: () {
+            setState(() {
+            });
+          },
+          child: Icon(Icons.add, color: Colors.teal, size: 30,),
+          backgroundColor: Colors.white,
+        ),
+      ),
       appBar: AppBar(
         title: const Text("أذكـــار المُســـلم",style:TextStyle(fontFamily: 'Tajawal')),
         centerTitle: true,
